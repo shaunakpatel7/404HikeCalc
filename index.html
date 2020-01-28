@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>JS Hike Calculator</title>
+
+<!-- Bootstrap v4 -->
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen">
+<!-- custom css -->
+<link href="css/custom.css" rel="stylesheet" type="text/css" media="screen">
+
+</head>
+
+<body>
+    <!-- heading and prompt for weight carried -->
+    <div class="col-md-12">
+        <h1>JavaScript Hike Calculator</h1>
+        <p>Enter your body weight in pounds (and weight of anything else you'll carry): <input type="text" name="weight" id="weight"></p>
+    </div>
+    
+    <!-- Trail Choices-->
+    <div class="col-md-12">
+        <p>Select Your Trail:</p>
+        <select id="trail">
+            <option value="540">Old Rag</option>
+            <option value="90">Upper Hawksbill </option>
+            <option value="480">Reddish Knob </option>
+            <option value="270">Fridley Gap</option>
+        </select>
+    </div>
+    
+    <!--Button to Execute the Function-->
+    <div class="col-md-12">
+        <p>
+            <button id="calories">Calculate</button>
+        </p>
+    </div>
+
+    <!--Where the answer will be Displayed-->
+    <div class="row" style="padding-left: 25px">
+        <div class = "col-md-1" id="result"> </div> 
+        <div> <p>Calories Burned on This Hike</p></div>
+    </div>
+
+    <!-- start of JS fuction required for the calculation-->
+    <script type="text/javascript">
+
+        //Dedining what the 'caculate' button does
+        var btn = document.getElementById('calories');
+        btn.onclick = countCalories;
+        
+        /*function testNum() {
+          if (calories < 800) {
+            countCalories;
+          } else {
+            alert("Please Input a number below 800");;
+          }
+        }*/
+
+        //Start of the funtion to count calories
+        function countCalories() {
+            //declaring variables
+            var trail = document.getElementById('trail').value;
+            var weight = document.getElementById('weight').value;
+            var poundstokg = weight / 2.2;
+            var PerMin = poundstokg * .07;
+            var total = PerMin * trail;
+            //Statement that will display the result
+            document.getElementById("result").innerHTML = total.toFixed(0);
+            
+        } 
+    </script>
+    
+<!-- End of script -->
+
+
+<!-- jQuery and Bootstrap links - do not delete! -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<!-- end of do not delete -->
+</body>
+</html>
