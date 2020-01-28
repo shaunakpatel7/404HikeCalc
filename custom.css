@@ -1,0 +1,10 @@
+@charset "UTF-8";
+/* Add your custom CSS declarations below  */
+
+.col-md-1{
+    border: 5px;
+    border-color: black;
+    border-style: groove;
+    background-color: yellow;
+    text-align: center;
+}
